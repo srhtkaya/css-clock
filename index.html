@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Clock with CSS and Vanilla JS</title>
+    </head>
+    <body>
+        <div class="clock">
+            <div class="clock-face">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+            </div>
+        </div>
+        <style>
+            html {
+                background:#018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+                background-size:cover;
+                font-family:'helvetica neue';
+                text-align: center;
+                font-size: 10px;
+            }
+
+            body {
+                margin: 0;
+                align-items: center;
+                display: flex;
+                flex: 1;
+                height: 100%;
+            }
+
+            .clock {
+                border: 20px solid #FFFFFF;
+                border-radius: 50%;
+                width: 30em;
+                height: 30em;
+                background: rgba(255, 255, 255, 0.3);
+                position: absolute;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
+                margin: 0 auto;
+                padding: 2rem;
+                box-shadow: 0 0 0 4px rgba(0,0,0,0.1),
+                            inset 0 0 0 3px #EFEFEF,
+                            inset 0 0 10px black,
+                            0 0 10px rgba(0,0,0,0.2);
+            }
+
+            .clock-face {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transform: translateY(-3px);
+                -moz-transform: translateY(-3px);
+                -webkit-transform: translateY(-3px);
+            }
+
+            .hand {
+                background: #000000;
+                width: 50%;
+                height: 6px;
+                position: absolute;
+                top: 50%;
+                border-radius: 4px;
+                transform-origin: 100%;
+                transform: rotate(90deg);
+            }
+        </style>
+        <script>
+            
+        </script>
+    </body>
+</html>
