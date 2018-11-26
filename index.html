@@ -14,7 +14,8 @@
         </div>
         <style>
             html {
-                background:#018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+                background-color:rgba(51, 0, 102, 0.5);
+                background-image: url(img/sunset.jpg);
                 background-size:cover;
                 font-family:'helvetica neue';
                 text-align: center;
@@ -34,7 +35,7 @@
                 border-radius: 50%;
                 width: 30em;
                 height: 30em;
-                background: rgba(255, 255, 255, 0.3);
+                background: rgba(255, 255, 255, 0.5);
                 position: absolute;
                 transform: translate(-50%, -50%);
                 -webkit-transform: translate(-50%, -50%);
@@ -67,10 +68,44 @@
                 border-radius: 4px;
                 transform-origin: 100%;
                 transform: rotate(90deg);
+                transition: all 0.05s;
+                transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+                -moz-transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+                -webkit-transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+            }
+
+            .second {
+                height: 3px;
+            }
+
+            .hour {
+                height: 8px;
+                width: 50%;
+                /*transform-origin: 133% 30%;*/
             }
         </style>
         <script>
-            
+            const secondHand = document.querySelector('.second');
+            const minHand = document.querySelector('.minute');
+            const hourHand = document.querySelector('.hour');
+
+            function setDate() {
+                const date = new Date();
+                const seconds = date.getSeconds();
+                const secondsDegrees = seconds * 360/60 + 90;
+                secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+                const minutes = date.getMinutes();
+                const minuteDegrees = minutes * 360/60 + 90;
+                minHand.style.transform = `rotate(${minuteDegrees}deg)`
+
+                const hours = date.getHours();
+                const hourDegrees = hours * 360/12 + 90;
+                hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+            }
+
+            setInterval(setDate, 1000);
+
         </script>
     </body>
 </html>
